@@ -1,0 +1,161 @@
+/* Zahlen-Guru – gemeinsames Aussehen aller Seiten.
+   Bewusst eine einzige Datei ohne Fremdbestandteile: Die Seiten müssen
+   auch in zehn Jahren noch laden, wenn kein Dienst mehr erreichbar ist. */
+
+:root {
+  --grund:   #F7F8FD;
+  --karte:   #FFFFFF;
+  --tinte:   #2B2947;
+  --leise:   #565475;
+  --linie:   #E2E3F0;
+  --indigo:  #4B46C4;
+  --gold:    #8C5A02;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --grund:  #16152A;
+    --karte:  #1E1D36;
+    --tinte:  #ECEBF7;
+    --leise:  #A6A3C4;
+    --linie:  #2E2C4A;
+    --indigo: #A6A2FA;
+    --gold:   #E0AE55;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--grund);
+  color: var(--tinte);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+}
+
+.blatt {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 5rem;
+}
+
+header.kopf {
+  padding: 3rem 0 1.5rem;
+  border-bottom: 2px solid var(--tinte);
+  margin-bottom: 2rem;
+}
+
+.marke {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -.01em;
+  text-decoration: none;
+  color: var(--tinte);
+}
+
+.marke .stern { font-size: 1.5rem; line-height: 1; }
+
+h1 {
+  font-size: clamp(1.75rem, 5vw, 2.4rem);
+  line-height: 1.15;
+  letter-spacing: -.022em;
+  margin: 1.75rem 0 .5rem;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  letter-spacing: -.012em;
+  margin: 2.5rem 0 .6rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid var(--linie);
+}
+
+h3 {
+  font-size: 1.02rem;
+  margin: 1.6rem 0 .25rem;
+}
+
+p { margin: 0 0 1rem; }
+
+.vorspann {
+  font-size: 1.1rem;
+  color: var(--leise);
+  margin-bottom: 0;
+}
+
+ul { padding-left: 1.2rem; margin: 0 0 1rem; }
+li { margin-bottom: .45rem; }
+li::marker { color: var(--indigo); }
+
+a { color: var(--indigo); }
+a:focus-visible { outline: 2px solid var(--indigo); outline-offset: 2px; }
+
+.karte {
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem;
+  margin: 1.5rem 0;
+}
+
+.karte p:last-child { margin-bottom: 0; }
+
+/* Was noch ausgefüllt werden muss – im Quelltext nicht zu übersehen. */
+.luecke {
+  background: #FFF3C4;
+  color: #6B4A00;
+  border: 1px dashed #C79A1A;
+  border-radius: 4px;
+  padding: .1em .45em;
+  font-weight: 600;
+}
+
+@media (prefers-color-scheme: dark) {
+  .luecke { background: #3B2E08; color: #F0D48A; border-color: #7A6220; }
+}
+
+.wege {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.weg {
+  display: block;
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  text-decoration: none;
+  color: var(--tinte);
+}
+
+.weg:hover { border-color: var(--indigo); }
+.weg strong { display: block; color: var(--indigo); margin-bottom: .2rem; }
+.weg span { font-size: .95rem; color: var(--leise); }
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--linie);
+  font-size: .9rem;
+  color: var(--leise);
+}
+
+footer a { margin-right: 1.1rem; }
+
+.stand {
+  font-size: .85rem;
+  color: var(--leise);
+  margin-top: 2.5rem;
+}
